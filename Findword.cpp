@@ -33,7 +33,7 @@ bool Vertikal(char* kata,char matrix[][23],int length){
         for (int j = 0; j <= 23; j++) {
             bool found = true;
             for (int k = 0; k < length; k++) {
-                if (matrix[i][j + k] != kata[k]) {
+                if (matrix[i + k][j] != kata[k]) {
                     found = false;
                     break;
                 }
