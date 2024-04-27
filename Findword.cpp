@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 void UpperCase(char* str) {
@@ -7,6 +8,30 @@ void UpperCase(char* str) {
         str[i] = toupper(str[i]);
         i++;
     }
+}
+
+bool Horizontal(char* kata,char matrix[][23],int length){
+
+}
+
+bool Vertikal(char* kata,char matrix[][23],int length){
+
+}
+
+bool DiagonalKiriAtas(char* kata,char matrix[][23],int length){
+
+}
+
+bool DiagonalKananAtas(char* kata,char matrix[][23],int Llngth){
+
+}
+
+bool DiagonalKiriBawah(char* kata,char matrix[][23],int length){
+
+}
+
+bool DiagonalKananBawah(char* kata,char matrix[][23],int length){
+
 }
 
 int main(){
@@ -46,7 +71,8 @@ int main(){
         UpperCase(kata[i]); 
     }
     for(int i = 0; i<n;i++){
-        if (carihori(kata, matrix, wordLen) || cariverti(kata, matrix, wordLen) || caridiagataskiri(kata, matrix, wordLen) || caridiagataskanan(kata, matrix, wordLen) || caridiagbawahkanan(kata, matrix, wordLen) ||caridiagbawahkiri(kata, matrix, wordLen)) {
+        int length = strlen(kata[i]);
+        if (Horizontal(kata[i], matrix,length) || Vertikal(kata[i], matrix,length) || DiagonalKiriAtas(kata[i], matrix, length) || DiagonalKananAtas(kata[i], matrix, length) || DiagonalKiriBawah(kata[i], matrix, length) || DiagonalKananBawah(kata[i], matrix, length)) {
             cout << "Ada" << endl;
         } else {
             cout << "Tidak Ada" << endl;
