@@ -46,6 +46,10 @@ int main(){
         UpperCase(kata[i]); 
     }
     for(int i = 0; i<n;i++){
-        
+        if (carihori(kata, matrix, wordLen) || cariverti(kata, matrix, wordLen) || caridiagataskiri(kata, matrix, wordLen) || caridiagataskanan(kata, matrix, wordLen) || caridiagbawahkanan(kata, matrix, wordLen) ||caridiagbawahkiri(kata, matrix, wordLen)) {
+            cout << "Ada" << endl;
+        } else {
+            cout << "Tidak Ada" << endl;
+        }
     }
 }
