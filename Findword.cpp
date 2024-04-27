@@ -29,7 +29,21 @@ bool Horizontal(char* kata,char matrix[][23],int length){
 }
 
 bool Vertikal(char* kata,char matrix[][23],int length){
-
+	 for (int i = 0; i < 23; i++) {
+        for (int j = 0; j <= 23; j++) {
+            bool found = true;
+            for (int k = 0; k < length; k++) {
+                if (matrix[i][j + k] != kata[k]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 bool DiagonalKiriAtas(char* kata,char matrix[][23],int length){
