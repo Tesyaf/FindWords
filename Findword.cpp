@@ -73,6 +73,32 @@ bool Vertikal(char* kata,char matrix[][23],int length){
     return false;
 }
 
+bool VertikalRev(char* kata,char matrix[][23],int length){\
+    char temp;
+    char reverse[length];
+    int j = 0;
+    for (int i = length-1; i >= 0; i--) {
+        temp = kata[j];
+        reverse[i] = temp;
+        j++;
+    }
+	 for (int i = 0; i < 23; i++) {
+        for (int j = 0; j <= 23; j++) {
+            bool found = true;
+            for (int k = 0; k < length; k++) {
+                if (matrix[i + k][j] != reverse[k]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 bool DiagonalKiriAtas(char* kata,char matrix[][23],int length){
     for (int i = 0; i < 23; i++) {
         for (int j = 0; j < 23; j++) {
@@ -185,7 +211,7 @@ int main(){
     }
     for(int i = 0; i<n;i++){
         int length = strlen(kata[i]);
-        if (Horizontal(kata[i], matrix,length)||HorizontalRev(kata[i],matrix,length) || Vertikal(kata[i], matrix,length) || DiagonalKiriAtas(kata[i], matrix, length) || DiagonalKananAtas(kata[i], matrix, length) || DiagonalKiriBawah(kata[i], matrix, length) || DiagonalKananBawah(kata[i], matrix, length)) {
+        if (Horizontal(kata[i], matrix,length)||HorizontalRev(kata[i],matrix,length) || Vertikal(kata[i], matrix,length)|| VertikalRev(kata[i],matrix,length) || DiagonalKiriAtas(kata[i], matrix, length) || DiagonalKananAtas(kata[i], matrix, length) || DiagonalKiriBawah(kata[i], matrix, length) || DiagonalKananBawah(kata[i], matrix, length)) {
             cout << "Ada" << endl;
         } else {
             cout << "Tidak Ada" << endl;
