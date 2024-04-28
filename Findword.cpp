@@ -16,6 +16,10 @@ bool Horizontal(char* kata,char matrix[][23],int length){
         for (int j = 0; j <= 23; j++) {
             bool found = true;
             for (int k = 0; k < length; k++) {
+                if (j + k > 23) {
+                    found = false;
+                    break;
+                }
                 if (matrix[i][j + k] != kata[k]) {
                     found = false;
                     break;
@@ -42,6 +46,10 @@ bool HorizontalRev(char* kata,char matrix[][23],int length){
         for (int j = 0; j <= 23; j++) {
             bool found = true;
             for (int k = 0; k < length; k++) {
+                if (j + k > 23) {
+                    found = false;
+                    break;
+                }
                 if (matrix[i][j + k] != reverse[k]) {
                     found = false;
                     break;
@@ -60,6 +68,10 @@ bool Vertikal(char* kata,char matrix[][23],int length){
         for (int j = 0; j <= 23; j++) {
             bool found = true;
             for (int k = 0; k < length; k++) {
+                if (i + k > 23) {
+                    found = false;
+                    break;
+                }
                 if (matrix[i + k][j] != kata[k]) {
                     found = false;
                     break;
@@ -86,6 +98,10 @@ bool VertikalRev(char* kata,char matrix[][23],int length){\
         for (int j = 0; j <= 23; j++) {
             bool found = true;
             for (int k = 0; k < length; k++) {
+                if (i + k > 23) {
+                    found = false;
+                    break;
+                }
                 if (matrix[i + k][j] != reverse[k]) {
                     found = false;
                     break;
@@ -104,6 +120,10 @@ bool DiagonalKiriAtas(char* kata,char matrix[][23],int length){
         for (int j = 0; j < 23; j++) {
             bool found = true;
             for (int k = 0; k < length; k++) {
+                if (i - k < 0 || j - k < 0) {
+                    found = false;
+                    break;
+                }
                 if (matrix[i - k][j - k] != kata[k]) {
                     found = false;
                     break;
@@ -123,6 +143,10 @@ bool DiagonalKananAtas(char* kata,char matrix[][23],int length){
         for (int j = 0; j <= 23; j++) {
             bool found = true;
             for (int k = 0; k < length; k++) {
+                if (i - k < 0 || j - k < 0) {
+                    found = false;
+                    break;
+                }
                 if (matrix[i - k][j + k] != kata[k]) {
                     found = false;
                     break;
@@ -142,6 +166,10 @@ bool DiagonalKiriBawah(char* kata,char matrix[][23],int length){
         for (int j = 0; j < 23; j++) {
             bool found = true;
             for (int k = 0; k < length; k++) {
+                if (i + k > 23 || j - k < 0) {
+                    found = false;
+                    break;
+                }
                 if (matrix[i + k][j - k] != kata[k]) {
                     found = false;
                     break;
@@ -156,10 +184,14 @@ bool DiagonalKiriBawah(char* kata,char matrix[][23],int length){
 }
 
 bool DiagonalKananBawah(char* kata,char matrix[][23],int length){
-    for (int i = 0; i <= 23; i++) {
-        for (int j = 0; j <= 23; j++) {
+    for (int i = 0; i < 23 - length; i++) {
+        for (int j = 0; j <= 23 - length; j++) {
             bool found = true;
             for (int k = 0; k < length; k++) {
+                if (i + k > 23 || j + k > 23) {
+                    found = false;
+                    break;
+                }
                 if (matrix[i + k][j + k] != kata[k]) {
                     found = false;
                     break;
